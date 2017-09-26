@@ -9,12 +9,12 @@ services:
           - fpm:fpm
           - mysql:mysql
       volumes:
-          - ./app/public:/var/www/html
+          - ./app/:/var/www/html
   fpm:
       build:
           context: ./fpm
       volumes:
-          - ./app/public:/var/www/html
+          - ./app/:/var/www/html
       ports:
           - '9001:9000'
       links:
@@ -31,7 +31,7 @@ services:
           - MYSQL_DATABASE=surveydb
       volumes:
           - ./database:/var/lib/mysql
-          - ./app/public:/var/www/html
+          - ./app/:/var/www/html
   
 
 
