@@ -12,15 +12,15 @@ if ($_GET["searchLocation"] != "") {
         if ($area != "--") {
             switch ($area)  {
                 case "200-600" : {
-                    $area = " and area > 200 and area < 600";
+                    $area = " and area > 199 and area < 601";
                     break;
                 } 
                 case "600-1100" : {
-                    $area = " and area > 600 and area < 1100";
+                    $area = " and area > 600 and area < 1101";
                     break;
                 } 
                 case "1100-1800" : {
-                    $area = " and area > 1100 and area < 1800";
+                    $area = " and area > 1100 and area < 1801";
                     break;
                 } 
                 case "above 1800" : {
@@ -34,12 +34,12 @@ if ($_GET["searchLocation"] != "") {
         $deposit = $_GET["deposit"];
         if ($deposit != "--") {
             switch ($deposit)  {
-                case "30000-70000" : {
-                    $deposit = " and deposit > 3000 and deposit < 70000";
+                case "3000-70000" : {
+                    $deposit = " and deposit > 2999 and deposit < 70001";
                     break;
                 } 
                 case "70000-120000" : {
-                    $deposit = " and deposit > 70000 and deposit < 120000";
+                    $deposit = " and deposit > 69999 and deposit < 120001";
                     break;
                 } 
                 case "above 120000" : {
@@ -57,11 +57,11 @@ if ($_GET["searchLocation"] != "") {
         if ($lease != "--") {
             switch ($lease)  {
                 case "1-6" : {
-                    $lease = " and lease_period > 1 and lease_period < 6";
+                    $lease = " and lease_period > 0 and lease_period < 7";
                     break;
                 } 
                 case "6-15" : {
-                    $lease = " and lease_period > 5 and lease_period < 15";
+                    $lease = " and lease_period > 5 and lease_period < 16";
                     break;
                 } 
                 case "above 15" : {
@@ -74,6 +74,7 @@ if ($_GET["searchLocation"] != "") {
         }
         require_once("./dbConnectPDO.php");
         $sql = "select * from places a,details b where a.id=b.Lid and  a.location='$searchString' $area $deposit $lease";
+        echo $sql;
         $stmt = $dbh->prepare($sql);
         $stmt->execute();
         if($stmt->rowCount()>0) {
