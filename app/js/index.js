@@ -19,7 +19,22 @@
         document.getElementById('searchTxt').value = value; 
         document.getElementById('suggestion').innerHTML="";    
     }
-
+    /**
+     * Check if improper input is entered in the search bar.
+     * Restricts search submision
+     */
+    function inputCheck() {
+        const searchTxt = document.getElementById('searchTxt').value;
+        const request = new HttpClient(url1);
+        request.get("?q="+searchTxt).then(function(response) {
+            suggestionBox.innerHTML = "";
+            for (i in response) {
+                if (searchTxt==response[i].location) 
+                    return true;
+            }
+            return false;
+        });
+    }
 
     /**
      * Suggests places based on query.
