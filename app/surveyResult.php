@@ -61,11 +61,11 @@ if ($_GET["searchLocation"] != "") {
                     break;
                 } 
                 case "6-15" : {
-                    $lease = " and lease_period > 6 and lease_period < 15";
+                    $lease = " and lease_period > 5 and lease_period < 15";
                     break;
                 } 
                 case "above 15" : {
-                    $lease = " and lease_period > 15";
+                    $lease = " and lease_period > 14";
                     break;
                 } 
             }
@@ -80,15 +80,7 @@ if ($_GET["searchLocation"] != "") {
             $list = $stmt->fetchAll( PDO::FETCH_ASSOC );
         }
         else
-            echo json_encode("");
-        // if($result = $conn->query($sql)) {
-        // if (mysqli_num_rows($result)>0){            
-        //         while ($row = $result->fetch_assoc()) 
-        //             $list[] = $row;
-        // } else {
-        //         header("Location: index.php");
-        // }
-    
+            echo json_encode("");    
     }else {    
         header("Location: index.php");
 }
