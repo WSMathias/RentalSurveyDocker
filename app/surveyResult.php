@@ -74,7 +74,6 @@ if ($_GET["searchLocation"] != "") {
         }
         require_once("./dbConnectPDO.php");
         $sql = "select * from places a,details b where a.id=b.Lid and  a.location='$searchString' $area $deposit $lease";
-        echo $sql;
         $stmt = $dbh->prepare($sql);
         $stmt->execute();
         if($stmt->rowCount()>0) {
