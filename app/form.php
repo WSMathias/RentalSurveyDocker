@@ -3,14 +3,21 @@
 /**
 *  Accepts the input for form entry.
 */
-session_start();
 $_SESSION["statusMessage"] = "";
+
 $location = $_POST["place"];
 $area = (float)$_POST["area"];
 $price = (float)$_POST["price"];
 $deposit = (float)$_POST["deposit"];
 $lease = (int)$_POST["lease"];
 $lid;
+
+$_SESSION["location"] = $location;
+$_SESSION["area"] = $area;
+$_SESSION["price"] = $price;
+$_SESSION["deposit"] = $deposit;
+$_SESSION["lease"] = $lease;
+
 /**
 *  Redirects to index.php if any errors.
 */
@@ -22,6 +29,11 @@ function onError(){
 */
 function onSuccess(){
     $_SESSION["statusMessage"] .= "<br>success<br>";
+    $_SESSION["location"] = "";
+    $_SESSION["area"] = "";
+    $_SESSION["price"] = "";
+    $_SESSION["deposit"] = "" ;
+    $_SESSION["lease"] = "";
     header("Location: surveyEntry.php");
 }
 /**

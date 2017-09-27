@@ -36,23 +36,23 @@
                   <form action="form.php" method="POST" >
                     <div class="form-group">
                     <label>Location </label>
-                    <input type="text" class="form-control" id="location" name="place" placeholder="">
+                    <input type="text" class="form-control" id="location" name="place" <?php echo "value=".$_SESSION["location"]; ?> >
                     </div>
                     <div class="form-group">
                     <label>Area (sqft)</label>
-                    <input type="number" class="form-control"  name="area">
+                    <input type="number" class="form-control"  name="area" <?php echo "value=".$_SESSION["area"]; ?>  >
                     </div>
                     <div class="form-group">
                     <label>Price (Rs) </label>
-                    <input type="number" class="form-control" name="price">
+                    <input type="number" class="form-control" name="price" <?php echo "value=".$_SESSION["price"]; ?> >
                     </div>
                     <div class="form-group">
                     <label>Desposit (Rs) </label>
-                    <input type="number" class="form-control" name="deposit">
+                    <input type="number" class="form-control" name="deposit" <?php echo "value=".$_SESSION["deposit"]; ?> >
                     </div>
                     <div class="form-group">
                     <label>Lease period(month) :</label>
-                    <input type="number" class="form-control" name="lease">
+                    <input type="number" class="form-control" name="lease" <?php echo "value=".$_SESSION["lease"]; ?> >
                     </div>
                     <div class="text-center">
                     <input type="submit" value="Submit" class="submit_button col-md-offest-4  mol-md-offset-4 btn btn-primary">
@@ -69,7 +69,6 @@
                 /**
                 * Displays the status message if any.
                 */
-                 session_start();
                   if (!isset($_SESSION["statusMessage"]) || $_SESSION["statusMessage"] == "")
                     echo 'display:none;';
                   else

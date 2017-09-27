@@ -2,10 +2,7 @@
 /**
 * Generates the data for the searched location and stores it into and array.
 */
-session_start();
 $list = [];
-
-
 if ($_GET["searchLocation"] != "") {
         $searchString = $_GET["searchLocation"];
         $area = $_GET["area"];
