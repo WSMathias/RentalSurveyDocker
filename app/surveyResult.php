@@ -97,7 +97,7 @@ if ($_GET["searchLocation"] != "") {
 <div class="nav navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand">Region Survey</a>
+                    <a href="index.php" class="navbar-brand">Region Survey</a>
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="index.php">Search in a Location</a></li>
