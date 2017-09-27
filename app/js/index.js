@@ -6,10 +6,14 @@
         document.getElementById('suggestion').innerHTML="";    
         const advancedSearchBtn = document.getElementsByClassName('advancedSearch')[0];
         const advancedSearchOptions = document.getElementsByClassName('advanced_option')[0];
-        if (advancedSearchOptions.style.display == "none")
+        if (advancedSearchOptions.style.display == "none") 
             advancedSearchOptions.style.display="block";
-        else
+        else {
+            document.getElementById('area').value="--";
+            document.getElementById('deposit').value="--";
+            document.getElementById('lease').value="--";
             advancedSearchOptions.style.display="none";
+        }
     }
     /**
      * Select the suggested places from suggestion list 
@@ -19,19 +23,26 @@
         document.getElementById('searchTxt').value = value; 
         document.getElementById('suggestion').innerHTML="";    
     }
+
     /**
      * Check if improper input is entered in the search bar.
      * Restricts search submision
      */
     function inputCheck() {
         const searchTxt = document.getElementById('searchTxt').value;
+        if (searchTxt == "") {
+            alert("Fields cannot be empty");
+            return;
+        }
         const request = new HttpClient(url1);
         request.get("?q="+searchTxt).then(function(response) {
-            suggestionBox.innerHTML = "";
-            for (i in response) {
-                if (searchTxt==response[i].location) 
-                    return true;
-            }
+                if (response != "") {
+                    console.log(true);  
+                    document.getElementById('search_box').submit();
+                    return;
+                } 
+            console.log(false);
+            alert("Place not available.");
             return false;
         });
     }

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <html>
 <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,8 +32,9 @@
 </div>
  <!-- Site heading -->
 <div class="jumbotron heading text-center">
-        <h1>Survey on different places in India</h1>
-        <h3> Gathering information based on Area,Rent and Lease Period. </h3>
+        <h3> Gathering information based on different Locations </h3>
+        <h3> Based on Area ,Deposit and Lease Period </h3>
+        <h3> Also search and explore different locations. </h3>
 </div>
 <!-- Search box  -->
  <div class="container">
@@ -40,7 +42,7 @@
             <div class="col-md-offset-2 col-md-8 col-md-offset-2 col-xs-offset-1 col-xs-10 col-xs-offset-1">
             <form class="search_box" id="search_box" action="surveyResult.php">
                     <div class="form-container">
-                        <a href="#" class="btn btn-info btn-lg" onclick="document.getElementById('search_box').submit();"><span class="glyphicon glyphicon-search"></span> </a>
+                        <a href="#" class="btn btn-info btn-lg" onclick="inputCheck();"><span class="glyphicon glyphicon-search"></span> </a>
                         <a href="#" onclick="toggleAdvancedOptions()" class="advancedSearch btn btn-info btn-md">Advanced</a>
                         <input type="text" class="form-control" id="searchTxt" onkeyup="suggestPlaces()" name="searchLocation" placeholder="Search in a Location" autocomplete="off">
                         <div id="suggestion">
