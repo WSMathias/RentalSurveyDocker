@@ -1,5 +1,4 @@
-
-<?php 
+<?php session_start(); 
 /**
 *  Accepts the input for form entry.
 */
@@ -13,10 +12,10 @@ $lease = (int)$_POST["lease"];
 $lid;
 
 $_SESSION["location"] = $location;
-$_SESSION["area"] = $area;
-$_SESSION["price"] = $price;
-$_SESSION["deposit"] = $deposit;
-$_SESSION["lease"] = $lease;
+$_SESSION["area"] = ($area==0)?"":$area;
+$_SESSION["price"] = ($price==0)?"":$price;
+$_SESSION["deposit"] = ($deposit==0)?"":$deposit;
+$_SESSION["lease"] = ($lease==0)?"":$lease;
 
 /**
 *  Redirects to index.php if any errors.

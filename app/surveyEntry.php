@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -36,7 +37,7 @@
                   <form action="form.php" method="POST" >
                     <div class="form-group">
                     <label>Location </label>
-                    <input type="text" class="form-control" id="location" name="place" <?php echo "value=".$_SESSION["location"]; ?> >
+                    <input type="text" class="form-control" id="location" name="place" placeholder=""<?php echo "value=".$_SESSION["location"]; ?> >
                     </div>
                     <div class="form-group">
                     <label>Area (sqft)</label>
