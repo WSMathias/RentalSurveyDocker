@@ -103,10 +103,9 @@ if ($_GET["searchLocation"] != "") {
                     <a class="navbar-brand">Region Survey</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="surveyEntry.php">Survey Entry</a></li>
-                    <li class="active"><a href="surveyResult.php">Survey Result</a></li>
-                    <li><a href="table.php">Get statics</a></li>
+                    <li><a href="index.php">Search in a Location</a></li>
+                    <li><a href="surveyEntry.php">Add My Place</a></li>
+                    <li><a href="table.php">Show me all places</a></li>
                 </ul>
             </div>
  </div>

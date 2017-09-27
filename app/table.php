@@ -24,9 +24,9 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav navbar-right">
-                        <li ><a href="index.php">Home</a></li>
-                        <li><a href="surveyEntry.php">Survey Entry</a></li>
-                        <li class="active"><a href="table.php">Get statics</a></li>
+                        <li ><a href="index.php">Search in a Location</a></li>
+                        <li><a href="surveyEntry.php">Add My Place</a></li>
+                        <li class="active"><a href="table.php">Show me all places</a></li>
                     </ul> 
                 </div>
             </div>

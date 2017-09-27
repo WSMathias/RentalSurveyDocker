@@ -22,17 +22,17 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="index.php">Home</a></li>
-                        <li><a href="surveyEntry.php">Survey Entry</a></li>
-                        <li><a href="table.php">Get statics</a></li>
-                    </ul> 
+                        <li class="active"><a href="index.php">Search in a Location</a></li>
+                        <li><a href="surveyEntry.php">Add My Place</a></li>
+                        <li><a href="table.php">Show me all places</a></li>
+                    </ul>
                 </div>
             </div>
- </div>
+</div>
  <!-- Site heading -->
 <div class="jumbotron heading text-center">
-        <h1>Find your dream property.</h1>
-        <h3> Every information at your finger tip. </h3>
+        <h1>Survey on different places in India</h1>
+        <h3> Gathering information based on Area,Rent and Lease Period. </h3>
 </div>
 <!-- Search box  -->
  <div class="container">
@@ -42,7 +42,7 @@
                     <div class="form-container">
                         <a href="#" class="btn btn-info btn-lg" onclick="document.getElementById('search_box').submit();"><span class="glyphicon glyphicon-search"></span> </a>
                         <a href="#" onclick="toggleAdvancedOptions()" class="advancedSearch btn btn-info btn-md">Advanced</a>
-                        <input type="text" class="form-control" id="searchTxt" onkeyup="suggestPlaces()" name="searchLocation" placeholder="Search by location" autocomplete="off">
+                        <input type="text" class="form-control" id="searchTxt" onkeyup="suggestPlaces()" name="searchLocation" placeholder="Search in a Location" autocomplete="off">
                         <div id="suggestion">
                             <!-- <span>suggestion dropdown to be fileed dynamically</span> -->
                         </div>
