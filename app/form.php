@@ -22,9 +22,8 @@ $_SESSION["lease"] = ($lease==0)?"":$lease;
 */
 function onError(){
     global $errorMessage; 
-    print_r ( $errorMessage);
     $_SESSION["errorMessage"] = serialize($errorMessage);
-    //header("Location: surveyEntry.php");
+    header("Location: surveyEntry.php");
 }
 /**
 * Sets statusMessage session on success of the entry.
@@ -36,7 +35,7 @@ function onSuccess(){
     $_SESSION["price"] = "";
     $_SESSION["deposit"] = "" ;
     $_SESSION["lease"] = "";
-    //header("Location: surveyEntry.php");
+    header("Location: surveyEntry.php");
 }
 /**
 * Check if the parameters are empty.
@@ -116,7 +115,6 @@ if (!isValidated()) {
     onError();
 } else {
     require_once("dbConnectPDO.php");
-    echo "connection status </br>";
     $location = strtoupper($location);
     $sqlCheck="select id from places where location ='$location'";
     $stmt = $dbh->prepare($sqlCheck);

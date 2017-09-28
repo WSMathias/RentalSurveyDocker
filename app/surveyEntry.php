@@ -34,33 +34,33 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-offset-3 col-md-6 col-md-offset-3 form_box ">
-                  <form action="form.php" method="POST" >
+                  <form action="form.php" method="POST"  onsubmit="return checkInputValid();">
                     <div class="form-group">
                     <label>Location </label>
                     <input type="text" class="form-control" id="location" name="place" placeholder="" <?php echo "value='".$_SESSION["location"] ."'"; ?> >
                     </div>
                     <div class="form-group">
                     <label>Area (sqft)</label>
-                    <input type="range" class="form-control" id="areaSlider" max="1000000" onchange="updateInput(this,areaInput)" min="300" name="area" <?php echo "value=".($_SESSION["area"]!="")?300:$_SESSION["area"]; ?>  >
+                    <input type="range"  step="200" class="form-control" id="areaSlider" max="1000000" onchange="updateInput(this,areaInput)" min="300" name="area" <?php echo "value=".($_SESSION["area"]!="")?300:$_SESSION["area"]; ?>  >
                     <input type="number" class="form-control" id="areaInput" max="1000000" min="300"  name="area" onkeyup="updateInput(this,areaSlider)" <?php echo "value=".($_SESSION["area"]!="")?300:$_SESSION["area"]; ?>  >
                     </div>
                     <div class="form-group">
                     <label>Price (Rs) </label>
-                    <input type="range" class="form-control" id="priceSlider" max="1000000000" min="10000" onchange="updateInput(this,priceInput)" name="price" <?php echo "value=".($_SESSION["price"]!="")?300:$_SESSION["price"]; ?>>
-                    <input type="number" class="form-control" id="priceInput" max="1000000000" min="10000" oninput="updateInput(this,priceSlider)" name="price" <?php echo "value=".($_SESSION["price"]!="")?300:$_SESSION["price"]; ?>>
+                    <input type="range"  step="10000" class="form-control" id="priceSlider" max="10000000" min="10000" onchange="updateInput(this,priceInput)" name="price" <?php echo "value=".($_SESSION["price"]!="")?300:$_SESSION["price"]; ?>>
+                    <input type="number" class="form-control" id="priceInput" max="10000000" min="10000" oninput="updateInput(this,priceSlider)" name="price" <?php echo "value=".($_SESSION["price"]!="")?300:$_SESSION["price"]; ?>>
                     </div>
                     <div class="form-group">
                     <label>Deposit (Rs) </label>
-                    <input type="range" class="form-control" id="depositSlider" max="1000000" min="300" onchange="updateInput(this,depositInput)" name="deposit" <?php echo "value=".($_SESSION["deposit"]!="")?300:$_SESSION["deposit"]; ?> >
+                    <input type="range"  step="100000" class="form-control" id="depositSlider" max="1000000" min="300" onchange="updateInput(this,depositInput)" name="deposit" <?php echo "value=".($_SESSION["deposit"]!="")?300:$_SESSION["deposit"]; ?> >
                     <input type="number" class="form-control" id="depositInput" max="1000000" min="300" oninput="updateInput(this,depositSlider)" name="deposit" <?php echo "value=".($_SESSION["deposit"]!="")?300:$_SESSION["deposit"]; ?> >
                     </div>
                     <div class="form-group">
                     <label>Lease period(month) :</label>
-                    <input type="range" class="form-control" id="leaseSlider" max="36" min="3" onchange="updateInput(this,leaseInput)" name="lease" <?php echo "value=".($_SESSION["lease"]!="")?300:$_SESSION["lease"]; ?> >
+                    <input type="range"  step="6" class="form-control" id="leaseSlider" max="36" min="3" onchange="updateInput(this,leaseInput)" name="lease" <?php echo "value=".($_SESSION["lease"]!="")?300:$_SESSION["lease"]; ?> >
                     <input type="number" class="form-control" id="leaseInput" max="36" min="3" oninput="updateInput(this,leaseSlider)" name="lease" <?php echo "value=".($_SESSION["lease"]!="")?300:$_SESSION["lease"]; ?> >
                     </div>
                     <div class="text-center">
-                    <input type="submit" value="Submit" class="submit_button col-md-offest-4  mol-md-offset-4 btn btn-primary" onsubmit="checkInputValid(this.value);">
+                    <input type="submit" value="Submit" name="submit" class="submit_button col-md-offest-4  mol-md-offset-4 btn btn-primary" onsubmit="checkInputValid(this.value);">
                     </div>
                   </form>
                 </div>

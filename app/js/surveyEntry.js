@@ -10,17 +10,12 @@ function initAutocomplete() {
         var searchBox = new google.maps.places.SearchBox(input, {bounds: defaultBounds});
             searchBox.addListener('places_changed', function() {
                 var places = searchBox.getPlaces();
-                if (places.length == 0) {
+                if (places.length == 0)
                     return;
-            }
-                console.log(places);
-            
             var bounds = new google.maps.LatLngBounds();
             places.forEach(function(place) {
-                if (!place.geometry) {
-                    console.log("Returned place contains no geometry");
+                if (!place.geometry) 
                     return;
-            }
         });
     });
   }
@@ -37,7 +32,6 @@ function initAutocomplete() {
             source.value = sourceMax;
     
     }
-    console.log(sourceVal > sourceMin || sourceVal == "");        
     if (sourceVal < sourceMin){
         sourceVal = sourceMin;
         source.value = sourceMin;        
@@ -48,8 +42,28 @@ function initAutocomplete() {
    * Restrict from entering invalid character ,which is not available in places api response
    */
   function checkInputValid(value) {
-    const listLength = document.getElementsByClassName('pac-item-query').length;
-    if (listLength==0)
+    const list = document.getElementsByClassName('pac-item');
+    const listLength = list.length;
+    if (listLength==0){
+        alert('invalid place');
         document.getElementById('location').value="";
-    return true;
+        return false;
+    } else {
+        let i;
+        let text = "";
+        for (i in list) {
+            let span = list[i].childNodes;
+            if (span[2] != undefined)
+                {
+                    if (span[2].textContent != "") {
+                        text = span[1].textContent + span[2].textContent;
+                        document.getElementById('location').value=text;
+                        return true;
+                    }
+                } 
+            else     
+            return false;          
+        }
+        return false;
+    }
   }
