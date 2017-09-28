@@ -12,6 +12,7 @@ $dbname = 'surveydb';
 
 try {
         $dbh = new PDO("mysql:host=$dbserver;port=$dbport;dbname=$dbname", $dbusername, $dbpassword , array( PDO::ATTR_PERSISTENT => false));
+        //echo "conncting </br>"; //for debugging;
         /**
         * usage of above code in included files
         *   $stmt = $dbh->prepare("select * from places");
