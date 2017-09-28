@@ -17,8 +17,6 @@ $_SESSION["price"] = ($price==0)?"":$price;
 $_SESSION["deposit"] = ($deposit==0)?"":$deposit;
 $_SESSION["lease"] = ($lease==0)?"":$lease;
 
-
-
 /**
 *  Redirects to index.php if any errors.
 */
@@ -101,7 +99,7 @@ function validateNumber($field,$number,$min=0,$max=10000000000) {
 function isValidated(){
     global $area,$location,$lease,$deposit,$price;
     if(!isEmpty()) {
-        if( validateString($location) && validateNumber("deposite",$deposit) &&
+        if( validateString($location) && validateNumber("deposit",$deposit) &&
          validateNumber("Lease Period",$lease) && validateNumber("Area",$area) &&
          validateNumber("Price",$price)){
              echo "form validated  successfully </br>";

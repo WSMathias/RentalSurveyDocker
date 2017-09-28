@@ -22,13 +22,13 @@ get(qry="") {
     return new Promise(function(resolve,reject) {
     let xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
-    console.log(client.url+qry); //for debuging
+    console.log(client.url+qry); //for debugging
     xhr.open("GET", client.url+qry);
     xhr.setRequestHeader("content-type", "application/json");      
     xhr.setRequestHeader("cache-control", "no-cache");
     xhr.onload = () =>{
         if (xhr.status==200) {
-            //console.log(xhr.statusText); //for debuging
+            //console.log(xhr.statusText); //for debugging
             if(xhr.response!="") {
                 resolve(JSON.parse(xhr.response));              
             }

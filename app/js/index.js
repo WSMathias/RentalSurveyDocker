@@ -26,7 +26,7 @@
 
     /**
      * Check if improper input is entered in the search bar.
-     * Restricts search submision
+     * Restricts search submission
      */
     function inputCheck() {
         const searchTxt = document.getElementById('searchTxt').value;

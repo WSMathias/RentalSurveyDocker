@@ -23,7 +23,7 @@ _________________________
       sudo apt-get install nodejs
     
 2. Type your password if prompted .
-3. Enter the follwowing : 
+3. Enter the following : 
      $ sudo apt-get install npm
      $ sudo ln -s /usr/bin/nodejs /usr/bin/node
 4. Now you can check if they are installed properly using : following commands (returns version):
@@ -71,10 +71,10 @@ ___________________________________________
 
 
 1. A home page index.html inside
-    This displays the list of products avalable with an option to edit and delete on each product.
+    This displays the list of products available with an option to edit and delete on each product.
 2. When a product is clicked a popup with compete details and Edit and Delete option appear.
 3.  A live search is provided at the top made using javascript XHR .
 4.  Edit page with previous data loaded automatically using XHR .
 5. A delete option ,which dynamically deletes the product.
-6. Index page also has category wise grouing ,which filters the products based on category using live updation.
+6. Index page also has category wise grouping ,which filters the products based on category using live updation.
 

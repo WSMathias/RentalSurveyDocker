@@ -1,6 +1,6 @@
 <?php
 /**
-* Creates connection to the datbase using PHP pdo.
+* Creates connection to the database using PHP pdo.
 */
    
 $array;
@@ -12,7 +12,7 @@ $dbname = 'surveydb';
 
 try {
         $dbh = new PDO("mysql:host=$dbserver;port=$dbport;dbname=$dbname", $dbusername, $dbpassword , array( PDO::ATTR_PERSISTENT => false));
-        //echo "conncting </br>"; //for debugging;
+        //echo "connecting </br>"; //for debugging;
         /**
         * usage of above code in included files
         *   $stmt = $dbh->prepare("select * from places");

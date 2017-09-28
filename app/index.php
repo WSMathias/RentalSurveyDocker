@@ -46,7 +46,7 @@
                         <a href="#" onclick="toggleAdvancedOptions()" class="advancedSearch btn btn-info btn-md">Advanced</a>
                         <input type="text" class="form-control" id="searchTxt" onkeyup="suggestPlaces()" name="searchLocation" placeholder="Search in a Location" autocomplete="off">
                         <div id="suggestion">
-                            <!-- <span>suggestion dropdown to be fileed dynamically</span> -->
+                            <!-- <span>suggestion dropdown to be filled dynamically</span> -->
                         </div>
                     </div>
                     <div class="row advanced_option">
