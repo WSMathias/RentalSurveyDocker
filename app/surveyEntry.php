@@ -1,4 +1,20 @@
-<?php session_start();?>
+<?php session_start();
+require_once('./classes/form.php');
+if (isset($_POST["submit"])){
+    $_SESSION["location"] = $_POST["place"];
+    $_SESSION["area"] = (int)$_POST["area"];
+    $_SESSION["price"] = (int)$_POST["price"];
+    $_SESSION["deposit"] = (int)$_POST["deposit"];
+    $_SESSION["lease"] = (int)$_POST["lease"];
+    $_SESSION["statusMessage"] = "";
+    if(SurveyForm::validate()){
+        // echo "<h2>no Error</h2>";
+        SurveyForm::submit();
+        $_SESSION["statusMessage"] = "Successfully submitted";
+    }
+    
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -34,7 +50,10 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-offset-3 col-md-6 col-md-offset-3 form_box ">
-                  <form action="form.php" method="POST"  onsubmit="return checkInputValid();">
+                <?php
+                    echo SurveyForm::render();
+                ?>
+                  <!-- <form action="form.php" method="POST"  onsubmit="return checkInputValid();">
                     <div class="form-group">
                     <label>Location </label>
                     <input type="text" class="form-control" id="location" name="place" placeholder="" <?php echo "value='".$_SESSION["location"] ."'"; ?> >
@@ -62,7 +81,7 @@
                     <div class="text-center">
                     <input type="submit" value="Submit" name="submit" class="submit_button col-md-offest-4  mol-md-offset-4 btn btn-primary" onsubmit="checkInputValid(this.value);">
                     </div>
-                  </form>
+                  </form> -->
                 </div>
             </div>
         </div> 
@@ -81,7 +100,7 @@
                    ?>">
                         <?php      
                         if (isset($_SESSION["statusMessage"]) || $_SESSION["statusMessage"] != "")
-                            {echo $_SESSION["statusMessage"];
+                            { echo $_SESSION["statusMessage"];
                                 unset($_SESSION["statusMessage"]);
                             }
                                                   
