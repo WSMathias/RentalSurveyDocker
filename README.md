@@ -32,10 +32,10 @@ $ cd RentalSurveyDocker/
 $ ./run.sh
 ```
 4. Go to browser and run the following URL :
-           	http://localhost:81
+           	http://localhost
 
 Note: If you want change the port from 81 to any other ports edit the line no. 7
-in docker-compose.yml from "81:80" to "yourPort:80" . 
+in docker-compose.yml from "80:80" to "yourPort:80" . 
 
 5. To stop the application :
 ```bash
