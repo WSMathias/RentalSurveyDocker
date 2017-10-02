@@ -41,29 +41,10 @@ function initAutocomplete() {
   /**
    * Restrict from entering invalid character ,which is not available in places api response
    */
-  function checkInputValid(value) {
-    const list = document.getElementsByClassName('pac-item');
-    const listLength = list.length;
-    if (listLength==0){
-        alert('invalid place');
-        document.getElementById('location').value="";
-        return false;
-    } else {
-        let i;
-        let text = "";
-        for (i in list) {
-            let span = list[i].childNodes;
-            if (span[2] != undefined)
-                {
-                    if (span[2].textContent != "") {
-                        text = span[1].textContent + span[2].textContent;
-                        document.getElementById('location').value=text;
-                        return true;
-                    }
-                } 
-            else     
-            return false;          
-        }
-        return false;
-    }
+  function checkInputValid() {
+    const value = document.getElementById('location').value.toUpperCase();
+    if (value.search("INDIA") != -1)
+        return true;
+        alert("Invalid Place name");
+    return false;
   }
