@@ -1,7 +1,8 @@
 # Rental Survey Docker project
 A PHP based application to survey about the rental places available based on location which utilizes Docker container concept.
-
-TECHNOLOGIES USED :
+---
+## TECHNOLOGIES USED :
+---
 1. PHP 
 2. Javascript
 3. HTML
@@ -9,16 +10,15 @@ TECHNOLOGIES USED :
 5. Bootstrap
 6. Docker
 
-
- 
-REQUIREMENTS : 
-
+--- 
+## REQUIREMENTS : 
+---
 1. docker
 2. docker-compose
 
-------------------------------------------
-HOW TO RUN THIS PROJECT 
-------------------------------------------
+---
+## HOW TO RUN THIS PROJECT 
+---
 1. Pull the project from GitHub :
 ```bash
 $ git clone https://github.com/WSMathias/RentalSurveyDocker.git
@@ -42,7 +42,7 @@ $ ./run.sh
 5. Go to browser and run the following URL :
            	http://localhost
 
-Note: If you want change the port from 81 to any other ports edit the line no. 7
+Note: If you want change the port from 80 to any other ports edit the line no. 7
 in docker-compose.yml from "80:80" to "yourPort:80" . 
 
 5. To stop the application :
@@ -50,10 +50,9 @@ in docker-compose.yml from "80:80" to "yourPort:80" .
  $ docker-compose down
  ```
 
-___________________________________________
-EXPECTED OUTPUT
-___________________________________________
-
+---
+## EXPECTED OUTPUT
+---
 
 1. Home page index.php :
 	This page contains a search box to search for available rental places based on location.
