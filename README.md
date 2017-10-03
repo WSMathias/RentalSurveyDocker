@@ -1,23 +1,25 @@
 # Rental Survey Docker project
 A PHP based application to survey about the rental places available based on location which utilizes Docker container concept.
-
+---
 TECHNOLOGIES USED :
+---
 1. PHP 
 2. Javascript
 3. HTML
 4. CSS
 5. Bootstrap
 6. Docker
- 
+
+--- 
 REQUIREMENTS : 
+---
 
 1. docker
 2. docker-compose
 
-------------------------------------------
+---
 HOW TO RUN THIS PROJECT 
-------------------------------------------
-
+---
 Note: Before starting the Project first stop and disable the apache and mysql services of system.
 
 1. Pull the project from GitHub :
@@ -46,17 +48,16 @@ $ ./run.sh
 ```bash
  $ docker-compose down
  ```
-------------------------------------------
+---
 HOW TO RUN THE TESTING
-------------------------------------------
+---
 1. To do the testing :
 ```bash
 $ php codecept.phar run acceptance --steps
 ```
-___________________________________________
+---
 EXPECTED OUTPUT
-___________________________________________
-
+---
 
 1. Home page index.php :
 	This page contains a search box to search for available rental places based on location.
