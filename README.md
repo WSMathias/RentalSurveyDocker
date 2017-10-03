@@ -8,8 +8,6 @@ TECHNOLOGIES USED :
 4. CSS
 5. Bootstrap
 6. Docker
-
-
  
 REQUIREMENTS : 
 
@@ -19,6 +17,9 @@ REQUIREMENTS :
 ------------------------------------------
 HOW TO RUN THIS PROJECT 
 ------------------------------------------
+
+Note: Before starting the Project first stop and disable the apache and mysql services of system.
+
 1. Pull the project from GitHub :
 ```bash
 $ git clone https://github.com/WSMathias/RentalSurveyDocker.git
@@ -39,17 +40,19 @@ $ docker-compose up
 ```bash
 $ ./run.sh
 ```
-5. Go to browser and run the following URL :
-           	http://localhost
+5. Go to browser and run the URL : http://localhost
 
-Note: If you want change the port from 81 to any other ports edit the line no. 7
-in docker-compose.yml from "80:80" to "yourPort:80" . 
-
-5. To stop the application :
+6. To stop the application :
 ```bash
  $ docker-compose down
  ```
-
+------------------------------------------
+HOW TO RUN THE TESTING
+------------------------------------------
+1. To do the testing :
+```bash
+$ php codecept.phar run acceptance --steps
+```
 ___________________________________________
 EXPECTED OUTPUT
 ___________________________________________
