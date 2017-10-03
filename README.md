@@ -27,11 +27,11 @@ $ git clone https://github.com/WSMathias/RentalSurveyDocker.git
 ```bash
 $ cd RentalSurveyDocker/
 ```
-3.1 build the container for the first time using:
+3. a) build the container for the first time using:
 ```bash
 $ docker-compose up --build
 ```
-3.2 from next time onwards start the container using:
+3. b) from next time onwards start the container using:
 ```bash
 $ docker-compose up 
 ```
