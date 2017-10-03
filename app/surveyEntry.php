@@ -8,7 +8,6 @@ if (isset($_POST["submit"])){
     $_SESSION["lease"] = (int)$_POST["lease"];
     $_SESSION["statusMessage"] = "";
     if(SurveyForm::validate()){
-        // echo "<h2>no Error</h2>";
         SurveyForm::submit();
         $_SESSION["statusMessage"] = "Successfully submitted";
     }
