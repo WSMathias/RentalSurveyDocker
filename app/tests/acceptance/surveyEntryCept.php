@@ -3,11 +3,11 @@ $I = new AcceptanceTester($scenario);
 $I->wantTo('pcheck the validation of form and return success after submit');
 
 $I->amOnPage('/surveyEntry.php');
-$I->fillField('place','a');
-$I->fillField('area','1200');
-$I->fillField('price','25000');
-$I->fillField('deposit','100000');
-$I->fillField('lease','24');
+$I->fillField('place','Bengaluru, Karnataka, India');
+$I->fillField('area','999900');
+$I->fillField('price','10000000');
+$I->fillField('deposit','900300');
+$I->fillField('lease','33');
 $I->click('submit');
 $I->seeCurrentUrlEquals('/surveyEntry.php');
-$I->see('Success');
+$I->see('Successfully submitted');
