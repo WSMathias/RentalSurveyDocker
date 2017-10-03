@@ -27,11 +27,19 @@ $ git clone https://github.com/WSMathias/RentalSurveyDocker.git
 ```bash
 $ cd RentalSurveyDocker/
 ```
-3. Run the following script to start the application :
+3.1 build the container for the first time using:
+```bash
+$ docker-compose up --build
+```
+3.2 from next time onwards start the container using:
+```bash
+$ docker-compose up 
+```
+4. Run the following script to setup default database :
 ```bash
 $ ./run.sh
 ```
-4. Go to browser and run the following URL :
+5. Go to browser and run the following URL :
            	http://localhost
 
 Note: If you want change the port from 81 to any other ports edit the line no. 7
