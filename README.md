@@ -59,6 +59,7 @@ HOW TO RUN THE TESTING
 
 1. To do the testing :
 ```bash
+$ cd app
 $ php codecept.phar run acceptance --steps
 ```
 
