@@ -5,12 +5,12 @@ class surveyEntryCest
 {
     public function _before(FunctionalTester $I)
     {
-        $I->amOnPage('../surveyEntry.php');
+        $I->amOnPage('/surveyEntry.php');
     }
 
     public function _after(FunctionalTester $I)
     {
-        $I->amOnPage('../surveyEntry.php');
+        $I->amOnPage('/surveyEntry.php');
     }
 
     // tests
