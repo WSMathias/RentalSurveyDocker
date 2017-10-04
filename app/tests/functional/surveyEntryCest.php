@@ -67,5 +67,35 @@ class surveyEntryCest
         $I->click('submit');
         $I->see('Successfully submitted');
     }
+    public function testIncorrectDeposit(FunctionalTester $I)
+    {
+        $I->fillField('place','Bengaluru, Karnataka, India');
+        $I->fillField('area','999900');
+        $I->fillField('price','5000');
+        $I->fillField('deposit','1');
+        $I->fillField('lease','33');
+        $I->click('submit');
+        $I->see('Successfully submitted');
+    }
+    public function testIncorrectLease(FunctionalTester $I)
+    {
+        $I->fillField('place','Bengaluru, Karnataka, India');
+        $I->fillField('area','999900');
+        $I->fillField('price','5000');
+        $I->fillField('deposit','100000');
+        $I->fillField('lease','356');
+        $I->click('submit');
+        $I->see('Successfully submitted');
+    }
+    public function testIncorrectMessage(FunctionalTester $I)
+    {
+        $I->fillField('place','Bengaluru, Karnataka, India');
+        $I->fillField('area','999900');
+        $I->fillField('price','5000');
+        $I->fillField('deposit','100000');
+        $I->fillField('lease','30');
+        $I->click('submit');
+        $I->see('Success');
+    }
 
 }
