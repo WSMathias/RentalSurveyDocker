@@ -1,0 +1,5 @@
+tests/functional/surveyEntryCest.php:testCorrectFields
+tests/functional/surveyEntryCest.php:testAllIncorrectFields
+tests/functional/surveyEntryCest.php:testInCorrectLocation
+tests/functional/surveyEntryCest.php:testIncorrectArea
+tests/functional/surveyEntryCest.php:testIncorrectPrice
