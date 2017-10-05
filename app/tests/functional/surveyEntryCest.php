@@ -17,10 +17,10 @@ class surveyEntryCest
     public function testCorrectFields(FunctionalTester $I)
     {
         $I->fillField('place','Bengaluru, Karnataka, India');
-        $I->fillField('area','999900');
-        $I->fillField('price','10000000');
-        $I->fillField('deposit','900300');
-        $I->fillField('lease','33');
+        $I->fillField('area',999900);
+        $I->fillField('price',10000000);
+        $I->fillField('deposit',900300);
+        $I->fillField('lease',33);
         $I->click('submit');
         $I->see('Successfully submitted');
     }
@@ -39,27 +39,27 @@ class surveyEntryCest
     public function testInCorrectLocation(FunctionalTester $I)
     {
         $I->fillField('place','%**&(&*#&#*');
-        $I->fillField('area','999900');
-        $I->fillField('price','10000000');
-        $I->fillField('deposit','900300');
-        $I->fillField('lease','33');
+        $I->fillField('area',999900);
+        $I->fillField('price',10000000);
+        $I->fillField('deposit',900300);
+        $I->fillField('lease',33);
         $I->click('submit');
         $I->see('Successfully submitted');
     }
 
     public function testIncorrectArea(FunctionalTester $I)
     {
-        $I->fillField('place','Bengaluru, Karnataka, India');
+        $I->fillField('place','Bengalru, Karnataka, India');
         $I->fillField('area','sdvsvdv');
-        $I->fillField('price','10000000');
-        $I->fillField('deposit','900300');
-        $I->fillField('lease','33');
+        $I->fillField('price',10000000);
+        $I->fillField('deposit',900300);
+        $I->fillField('lease',33);
         $I->click('submit');
         $I->see('Successfully submitted');
     }
     public function testIncorrectPrice(FunctionalTester $I)
     {
-        $I->fillField('place','Bengaluru, Karnataka, India');
+        $I->fillField('place','Bengalru, Karnataka, India');
         $I->fillField('area','999900');
         $I->fillField('price','5');
         $I->fillField('deposit','900300');
@@ -69,7 +69,7 @@ class surveyEntryCest
     }
     public function testIncorrectDeposit(FunctionalTester $I)
     {
-        $I->fillField('place','Bengaluru, Karnataka, India');
+        $I->fillField('place','Bengalru, Karnataka, India');
         $I->fillField('area','999900');
         $I->fillField('price','5000');
         $I->fillField('deposit','1');
@@ -79,7 +79,7 @@ class surveyEntryCest
     }
     public function testIncorrectLease(FunctionalTester $I)
     {
-        $I->fillField('place','Bengaluru, Karnataka, India');
+        $I->fillField('place','Bengalru, Karnataka, India');
         $I->fillField('area','999900');
         $I->fillField('price','5000');
         $I->fillField('deposit','100000');
@@ -89,7 +89,7 @@ class surveyEntryCest
     }
     public function testIncorrectMessage(FunctionalTester $I)
     {
-        $I->fillField('place','Bengaluru, Karnataka, India');
+        $I->fillField('place','Bengalru, Karnataka, India');
         $I->fillField('area','999900');
         $I->fillField('price','5000');
         $I->fillField('deposit','100000');

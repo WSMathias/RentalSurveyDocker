@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+deposit </br>integer deposit  comp</br>Lease Period </br>integer Lease Period  comp</br>Area </br>Area is not a number (0)</br><!DOCTYPE html>
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,12 +37,12 @@
         <form action="surveyEntry.php" method="POST" oknsubmit="return checkInputValid();">
         <div class="form-group">
         <label>Location </label>
-        <input type="text" class="form-control" id="location" name="place" placeholder="" value ="%**&(&*#&#*">
+        <input type="text" class="form-control" id="location" name="place" placeholder="" value ="Bengalru, Karnataka, India">
         </div>
         <div class="form-group">
         <label>Area (sqft)</label>
-        <input type="range"  step="200" class="form-control" id="areaSlider" max="1000000" onchange="updateInput(this,areaInput)" min="300" value="999900" >
-        <input type="number" class="form-control" id="areaInput" max="1000000" min="300"  name="area" onkeyup="updateInput(this,areaSlider)" value="999900" >
+        <input type="range"  step="200" class="form-control" id="areaSlider" max="1000000" onchange="updateInput(this,areaInput)" min="300" value="0" >
+        <input type="number" class="form-control" id="areaInput" max="1000000" min="300"  name="area" onkeyup="updateInput(this,areaSlider)" value="0" >
         </div>
         <div class="form-group">
         <label>Price (Rs) </label>
@@ -70,8 +70,8 @@
         <div class="container-fluid alert_box">
             <div class="row">
                 <div class="col-md-offset-3 col-md-6 col-md-offset-3">
-                  <div class="alert alert-info" style="display:block;">
-                        %**&(&*#&#* : special characters are not allowed<br>                  </div>
+                  <div class="alert alert-info" style="display:none;">
+                                          </div>
                 </div>
             </div>
         </div> 
