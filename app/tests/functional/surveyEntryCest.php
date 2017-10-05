@@ -33,7 +33,7 @@ class surveyEntryCest
         $I->fillField('deposit','$%^$%^$^');
         $I->fillField('lease','$%^$%^$%%^');
         $I->click('submit');
-        $I->see('Successfully submitted');
+        $I->dontSee('Successfully submitted');
     }
 
     public function testInCorrectLocation(FunctionalTester $I)
@@ -44,7 +44,7 @@ class surveyEntryCest
         $I->fillField('deposit',900300);
         $I->fillField('lease',33);
         $I->click('submit');
-        $I->see('Successfully submitted');
+        $I->dontSee('Successfully submitted');
     }
 
     public function testIncorrectArea(FunctionalTester $I)
@@ -55,7 +55,7 @@ class surveyEntryCest
         $I->fillField('deposit',900300);
         $I->fillField('lease',33);
         $I->click('submit');
-        $I->see('Successfully submitted');
+        $I->dontSee('Successfully submitted');
     }
     public function testIncorrectPrice(FunctionalTester $I)
     {
@@ -65,7 +65,7 @@ class surveyEntryCest
         $I->fillField('deposit','900300');
         $I->fillField('lease','33');
         $I->click('submit');
-        $I->see('Successfully submitted');
+        $I->dontSee('Successfully submitted');
     }
     public function testIncorrectDeposit(FunctionalTester $I)
     {
@@ -75,7 +75,7 @@ class surveyEntryCest
         $I->fillField('deposit','1');
         $I->fillField('lease','33');
         $I->click('submit');
-        $I->see('Successfully submitted');
+        $I->dontSee('Successfully submitted');
     }
     public function testIncorrectLease(FunctionalTester $I)
     {
@@ -85,7 +85,7 @@ class surveyEntryCest
         $I->fillField('deposit','100000');
         $I->fillField('lease','356');
         $I->click('submit');
-        $I->see('Successfully submitted');
+        $I->dontSee('Successfully submitted');
     }
     public function testIncorrectMessage(FunctionalTester $I)
     {
@@ -95,7 +95,7 @@ class surveyEntryCest
         $I->fillField('deposit','100000');
         $I->fillField('lease','30');
         $I->click('submit');
-        $I->see('Success');
+        $I->dontSee('Success');
     }
 
 }
