@@ -109,7 +109,7 @@ class Surveyform {
         */
         function validateNumber($field,$number,$min=0,$max=10000000000) {
             echo "$field </br>";
-            if(is_integer($number) && $number !=0) {
+            if(is_integer($number)) {
                 if($number >= $min && $number <= $max){
                     echo gettype($number)." $field "." comp</br>";
                     return true;
