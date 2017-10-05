@@ -108,14 +108,14 @@ class Surveyform {
         * return {boolean}
         */
         function validateNumber($field,$number,$min=0,$max=10000000000) {
-            echo "$field </br>";
+            // echo "$field </br>";
             if(is_integer($number)) {
                 if($number >= $min && $number <= $max){
-                    echo gettype($number)." $field "." comp</br>";
+                    // echo gettype($number)." $field "." comp</br>";
                     return true;
                 }            
                 else{
-                    echo "$field must be between $min and $max</br>"; 
+                    // echo "$field must be between $min and $max</br>"; 
                     return false ; //$errorMessage[] = [$field => "$field must be between $min and $max"];
                 }
             }
