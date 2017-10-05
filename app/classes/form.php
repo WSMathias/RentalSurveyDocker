@@ -56,9 +56,11 @@ class Surveyform {
         */
         function isValidated(){
             if(!isEmpty()) {
-                if( validateString($_SESSION["location"]) && validateNumber("deposit",$_SESSION["deposit"]) &&
-                validateNumber("Lease Period",$_SESSION["lease"]) && validateNumber("Area",$_SESSION["area"]) &&
-                validateNumber("Price",$_SESSION["price"])){
+                if( validateString($_SESSION["location"]) && 
+                validateNumber("deposit",$_SESSION["deposit"],300,900300) &&
+                validateNumber("Lease Period",$_SESSION["lease"],3,33) && 
+                validateNumber("Area",$_SESSION["area"],300,999900) &&
+                validateNumber("Price",$_SESSION["price"],10000,10000000)){
                     //echo "form validated  successfully </br>";
                     return true;
                 }
