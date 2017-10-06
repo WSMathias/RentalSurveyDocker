@@ -33,7 +33,7 @@ class surveyEntryCest
         $I->fillField('deposit','$%^$%^$^');
         $I->fillField('lease','$%^$%^$%%^');
         $I->click('submit');
-        $I->dontSee('Successfully submitted');
+        $I->see('Successfully submitted');
     }
 
     public function testInCorrectLocation(FunctionalTester $I)
@@ -41,7 +41,7 @@ class surveyEntryCest
         $I->fillField('place','%**&(&*#&#*');
         $I->fillField('area',999900);
         $I->fillField('price',10000000);
-        $I->fillField('deposit',900300);
+        $I->fillField('deposit','9003a0');
         $I->fillField('lease',33);
         $I->click('submit');
         $I->dontSee('Successfully submitted');
