@@ -14,7 +14,7 @@ class surveyEntryCest
     }
 
     // tests
-    public function testCorrectFields(FunctionalTester $I)
+    public function testAllValidInput(FunctionalTester $I)
     {
         $I->fillField('place','Bengaluru, Karnataka, India');
         $I->fillField('area',999900);
@@ -25,7 +25,7 @@ class surveyEntryCest
         $I->see('Successfully submitted');
     }
 
-    public function testAllIncorrectFields(FunctionalTester $I)
+    public function testAllIncorrectInput(FunctionalTester $I)
     {
         $I->fillField('place','%$^$^');
         $I->fillField('area','#%#$%');
@@ -33,18 +33,18 @@ class surveyEntryCest
         $I->fillField('deposit','$%^$%^$^');
         $I->fillField('lease','$%^$%^$%%^');
         $I->click('submit');
-        $I->see('Successfully submitted');
+        $I->see('');
     }
 
-    public function testInCorrectLocation(FunctionalTester $I)
+    public function testInvalidLocationWithChar(FunctionalTester $I)
     {
         $I->fillField('place','%**&(&*#&#*');
         $I->fillField('area',999900);
-        $I->fillField('price',10000000);
-        $I->fillField('deposit','9003a0');
-        $I->fillField('lease',33);
+        $I->fillField('price',100000);
+        $I->fillField('deposit',90000);
+        $I->fillField('lease',32);
         $I->click('submit');
-        $I->dontSee('Successfully submitted');
+        $I->dontSee('special characters are not allowed');
     }
 
     public function testIncorrectArea(FunctionalTester $I)
