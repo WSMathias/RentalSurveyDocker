@@ -24,11 +24,14 @@ services:
           - "DB_HOST=mysql"
           - "DB_DATABASE=surveydb"
   mysql:
-      build:
-          context: ./mysql
+      image: mariadb
       ports:
           - '3306:3306'
       environment:
           - MYSQL_ROOT_PASSWORD=root
           - MYSQL_DATABASE=surveydb
-        
+      volumes:
+          - db-data:/var/lib/mysql/data
+volumes:
+  db-data:
+  

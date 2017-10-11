@@ -9,35 +9,35 @@ class Surveyform {
     }
 
     public function render() {
-        $lastLocation = ($_SESSION["location"]=="")?"":$_SESSION["location"];
-        $lastArea = ($_SESSION["area"]=="")?300:$_SESSION["area"];
-        $lastPrice = ($_SESSION["price"]=="")?10000:$_SESSION["price"];
-        $lastDeposit = ($_SESSION["deposit"]=="")?300:$_SESSION["deposit"];
-        $lastLease = ($_SESSION["lease"]=="")?3:$_SESSION["lease"];
+        $lastLocation = $_SESSION["location"];
+        $lastArea = $_SESSION["area"];
+        $lastPrice = $_SESSION["price"];
+        $lastDeposit = $_SESSION["deposit"];
+        $lastLease = $_SESSION["lease"];
         $fields ='
-        <form action="surveyEntry.php" method="POST" onsubmit="return checkInputValid();">
+        <form action="surveyEntry.php" method="POST" oknsubmit="return checkInputValid();">
         <div class="form-group">
         <label>Location </label>
         <input type="text" class="form-control" id="location" name="place" placeholder="" value ="'.$lastLocation.'">
         </div>
         <div class="form-group">
         <label>Area (sqft)</label>
-        <input type="range"  step="200" class="form-control" id="areaSlider" max="1000000" onchange="updateInput(this,areaInput)" min="300" name="area" value="'.$lastArea .'" >
+        <input type="range"  step="200" class="form-control" id="areaSlider" max="1000000" onchange="updateInput(this,areaInput)" min="300" value="'.$lastArea .'" >
         <input type="number" class="form-control" id="areaInput" max="1000000" min="300"  name="area" onkeyup="updateInput(this,areaSlider)" value="'.$lastArea .'" >
         </div>
         <div class="form-group">
         <label>Price (Rs) </label>
-        <input type="range"  step="10000" class="form-control" id="priceSlider" max="10000000" min="10000" onchange="updateInput(this,priceInput)" name="price" value="'.$lastPrice .'">
+        <input type="range"  step="10000" class="form-control" id="priceSlider" max="10000000" min="10000" onchange="updateInput(this,priceInput)" value="'.$lastPrice .'">
         <input type="number" class="form-control" id="priceInput" max="10000000" min="10000" oninput="updateInput(this,priceSlider)" name="price" value="'.$lastPrice .'">
         </div>
         <div class="form-group">
         <label>Deposit (Rs) </label>
-        <input type="range"  step="100000" class="form-control" id="depositSlider" max="1000000" min="300" onchange="updateInput(this,depositInput)" name="deposit" value="'.$lastDeposit .'" >
+        <input type="range"  step="100000" class="form-control" id="depositSlider" max="1000000" min="300" onchange="updateInput(this,depositInput)" value="'.$lastDeposit .'" >
         <input type="number" class="form-control" id="depositInput" max="1000000" min="300" oninput="updateInput(this,depositSlider)" name="deposit" value="'.$lastDeposit .'" >
         </div>
         <div class="form-group">
         <label>Lease period(month) :</label>
-        <input type="range"  step="6" class="form-control" id="leaseSlider" max="36" min="3" onchange="updateInput(this,leaseInput)" name="lease" value="'.$lastLease .'" >
+        <input type="range"  step="6" class="form-control" id="leaseSlider" max="36" min="3" onchange="updateInput(this,leaseInput)" value="'.$lastLease .'" >
         <input type="number" class="form-control" id="leaseInput" max="36" min="3" oninput="updateInput(this,leaseSlider)" name="lease" value="'.$lastLease .'" >
         </div>
         <div class="text-center">
@@ -56,9 +56,11 @@ class Surveyform {
         */
         function isValidated(){
             if(!isEmpty()) {
-                if( validateString($_SESSION["location"]) && validateNumber("deposit",$_SESSION["deposit"]) &&
-                validateNumber("Lease Period",$_SESSION["lease"]) && validateNumber("Area",$_SESSION["area"]) &&
-                validateNumber("Price",$_SESSION["price"])){
+                if( validateString($_SESSION["location"]) && 
+                validateNumber("deposit",$_SESSION["deposit"],300,900300) &&
+                validateNumber("Lease Period",$_SESSION["lease"],3,33) && 
+                validateNumber("Area",$_SESSION["area"],300,999900) &&
+                validateNumber("Price",$_SESSION["price"],10000,10000000)){
                     //echo "form validated  successfully </br>";
                     return true;
                 }
@@ -106,19 +108,25 @@ class Surveyform {
         * return {boolean}
         */
         function validateNumber($field,$number,$min=0,$max=10000000000) {
+            // echo "$field </br>";
             if(is_integer($number)) {
                 if($number >= $min && $number <= $max){
+                    // echo gettype($number)." $field "." comp</br>";
                     return true;
                 }            
                 else{
-                    //echo "$field must be between $min and $max</br>"; 
-                    return $errorMessage[] = [$field => "$field must be between $min and $max"];}
+                    // echo "$field must be between $min and $max</br>"; 
+                    return false ; //$errorMessage[] = [$field => "$field must be between $min and $max"];
+                }
             }
             else {
-                //echo "$field is not a number </br>";
-                return $errorMessage[] = [$field => "$field is not a number"];}
+                //echo gettype($number)."</br> 3";
+                echo "$field is not a number ($number)</br>";
+                return false; //$errorMessage[] = [$field => "$field is not a number"];
+            }
 
         }
+
         return isValidated();
     }
 
@@ -139,14 +147,25 @@ class Surveyform {
                 $sql = "insert into details(area,price,deposit,lease_period,lid) values($area,ROUND($price/$area,2),$deposit,$lease,$lid)";
                 $stmt = $dbh->prepare($sql);
                 if($stmt->execute()) {
+                    unset($_SESSION["location"]);
+                    unset($_SESSION["area"]);
+                    unset($_SESSION["price"]);
+                    unset($_SESSION["deposit"]);
+                    unset($_SESSION["lease"]);
                     return true;
                 }
             }
             else{
                 $sqlPlaces ="insert into places(location) values('$location')";
                 $sqlDetails ="insert into details(area,price,deposit,lease_period,lid) values($area,ROUND($price/$area,2),$deposit,$lease,LAST_INSERT_ID())";
-                if($dbh->query($sqlPlaces) && $dbh->query($sqlDetails))
-                    return true;
+                if($dbh->query($sqlPlaces) && $dbh->query($sqlDetails)){
+                        unset($_SESSION["location"]);
+                        unset($_SESSION["area"]);
+                        unset($_SESSION["price"]);
+                        unset($_SESSION["deposit"]);
+                        unset($_SESSION["lease"]);
+                        return true;
+                    }
                 else
                     return false;
             }

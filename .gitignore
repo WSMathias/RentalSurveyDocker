@@ -1,2 +1,3 @@
 database
 app/test.php
+app/tests/_output/*

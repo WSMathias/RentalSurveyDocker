@@ -1,0 +1,83 @@
+deposit </br>integer deposit  comp</br>Lease Period </br>integer Lease Period  comp</br>Area </br>integer Area  comp</br>Price </br>Price must be between 10000 and 10000000</br><!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="css/main.css" rel="stylesheet">
+        <link href="css/surveyEntry.css" rel="stylesheet">
+    </head>
+    <body>
+    <!-- Navbar -->
+        <div class="nav navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                        
+                </button>
+                <li><a href="index.php" class="navbar-brand">RentalSurvey</a></li>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li ><a href="index.php">Search in a Location</a></li>
+                    <li class="active" ><a href="surveyEntry.php">Add My Place</a></li>
+                    <li><a href="table.php">Show me all places</a></li>
+                </ul> 
+            </div>
+        </div>
+        </div>
+        <!-- Form to entry details -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-offset-3 col-md-6 col-md-offset-3 form_box ">
+                
+        <form action="surveyEntry.php" method="POST" oknsubmit="return checkInputValid();">
+        <div class="form-group">
+        <label>Location </label>
+        <input type="text" class="form-control" id="location" name="place" placeholder="" value ="Bengalru, Karnataka, India">
+        </div>
+        <div class="form-group">
+        <label>Area (sqft)</label>
+        <input type="range"  step="200" class="form-control" id="areaSlider" max="1000000" onchange="updateInput(this,areaInput)" min="300" value="999900" >
+        <input type="number" class="form-control" id="areaInput" max="1000000" min="300"  name="area" onkeyup="updateInput(this,areaSlider)" value="999900" >
+        </div>
+        <div class="form-group">
+        <label>Price (Rs) </label>
+        <input type="range"  step="10000" class="form-control" id="priceSlider" max="10000000" min="10000" onchange="updateInput(this,priceInput)" value="5">
+        <input type="number" class="form-control" id="priceInput" max="10000000" min="10000" oninput="updateInput(this,priceSlider)" name="price" value="5">
+        </div>
+        <div class="form-group">
+        <label>Deposit (Rs) </label>
+        <input type="range"  step="100000" class="form-control" id="depositSlider" max="1000000" min="300" onchange="updateInput(this,depositInput)" value="900300" >
+        <input type="number" class="form-control" id="depositInput" max="1000000" min="300" oninput="updateInput(this,depositSlider)" name="deposit" value="900300" >
+        </div>
+        <div class="form-group">
+        <label>Lease period(month) :</label>
+        <input type="range"  step="6" class="form-control" id="leaseSlider" max="36" min="3" onchange="updateInput(this,leaseInput)" value="33" >
+        <input type="number" class="form-control" id="leaseInput" max="36" min="3" oninput="updateInput(this,leaseSlider)" name="lease" value="33" >
+        </div>
+        <div class="text-center">
+        <input type="submit" value="Submit" name="submit" class="submit_button col-md-offest-4  mol-md-offset-4 btn btn-primary" onsubmit="checkInputValid(this.value);">
+        </div>
+        </form>
+                        </div>
+            </div>
+        </div> 
+        <!-- Alert Box -->
+        <div class="container-fluid alert_box">
+            <div class="row">
+                <div class="col-md-offset-3 col-md-6 col-md-offset-3">
+                  <div class="alert alert-info" style="display:none;">
+                                          </div>
+                </div>
+            </div>
+        </div> 
+           
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPX7xWTZQaFlNYvwP59-P0oElX32Jrl3s&libraries=places&callback=initAutocomplete"
+         async defer></script>
+         <script src="./js/surveyEntry.js"></script>
+    </body>
+</html>
