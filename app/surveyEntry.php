@@ -1,18 +1,19 @@
 <?php session_start();
 require_once('./classes/form.php');
-if (isset($_POST["submit"])){
-    $_SESSION["location"] = $_POST["place"];
-    $_SESSION["area"] = (int)$_POST["area"];
-    $_SESSION["price"] = (int)$_POST["price"];
-    $_SESSION["deposit"] = (int)$_POST["deposit"];
-    $_SESSION["lease"] = (int)$_POST["lease"];
-    $_SESSION["statusMessage"] = "";
-    if(SurveyForm::validate()){
-        SurveyForm::submit();
-        $_SESSION["statusMessage"] = "Successfully submitted";
-    }
+// if (isset($_POST["submit"])){
+    SurveyForm::onSubmit();
+    // $_SESSION["location"] = $_POST["place"];
+    // $_SESSION["area"] = (int)$_POST["area"];
+    // $_SESSION["price"] = (int)$_POST["price"];
+    // $_SESSION["deposit"] = (int)$_POST["deposit"];
+    // $_SESSION["lease"] = (int)$_POST["lease"];
+    // $_SESSION["statusMessage"] = "";
+    // if(SurveyForm::validate()){
+    //     SurveyForm::submit();
+    //     $_SESSION["statusMessage"] = "Successfully submitted";
+    // }
     
-}
+// }
 ?>
 <!DOCTYPE html>
 <html>

@@ -49,7 +49,7 @@ class Surveyform {
     }
 
 
-    public function validate(){  
+    public static function validate(){  
         /**
         * Checks if parameters are completely validated.
         * return {boolean}
@@ -130,7 +130,7 @@ class Surveyform {
         return isValidated();
     }
 
-    public function submit() {
+    public static function submit() {
 
         $location = $_SESSION["location"];
         $area = $_SESSION["area"];
@@ -170,6 +170,23 @@ class Surveyform {
                     return false;
             }
         
+
+    }
+
+    public function onSubmit() {
+        if (isset($_POST["submit"])){
+            $_SESSION["location"] = $_POST["place"];
+            $_SESSION["area"] = (int)$_POST["area"];
+            $_SESSION["price"] = (int)$_POST["price"];
+            $_SESSION["deposit"] = (int)$_POST["deposit"];
+            $_SESSION["lease"] = (int)$_POST["lease"];
+
+            $_SESSION["statusMessage"] = "";
+            if(SurveyForm::validate()){
+                SurveyForm::submit();
+                $_SESSION["statusMessage"] = "Successfully submitted";
+            }
+        }
 
     }
 
