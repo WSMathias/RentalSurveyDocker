@@ -1,9 +1,10 @@
 <?php
-class formBuilder implements renderable {
+class FormBuilder implements renderable {
     protected $title;
     protected $action;
     protected $method;
     protected $fields= array();
+
     function __construct($title=null,$action=null,$method="GET"){
         $this->$title = $title;
         $this->$action = $action;
@@ -28,26 +29,28 @@ class formBuilder implements renderable {
 
     public function render(){
         $formHtml = "<form action='$this->$action' method='$this->$method'>";
+        if ($title!=null){
+            $formHtml .= "<h2>$title<h2>";
+        }
 
         foreach ($this->$fields as $field){
-            $type=$field->getType();
-            $type = ($field->$type != null)?" type='$field->$type'":"";
-            $name = $field->getName();
-            $name  = ($field->$name != null)?" name='$field->$name'":"";
-            $value = $field->getValue();
-            $value  = ($field->$value != null)?" value='$field->$value'":"";
+            $type   = $field->getType();
+            $name   = $field->getName();
+            $value  = $field->getValue();
             $placeholder = $field->getPlaceholder();
-            $placeholder  = ($field->$placeholder != null)?" placeholder='$field->$placeholder'":"";
-            $id = $field->getId();
-            $id = ($d!=null)?" id='$id'":"";
-            $class =$field->getClass();
-            $class = ($class!=null)?" class='$class'":"";
-            $max = $field->getMax();
-            $max  = ($field->$max != null)?" max='$field->$max'":"";
-            $min = $field->getMin();
-            $min  = ($field->$min != null)?" min='$field->$min'":"";
-            //$formHtml.="<input type='$field->$type' name='$field->$name' placeholder='$field->$placeholder' value=
-            
+            $id     = $field->getId();
+            $class  =$field->getClass();
+            $max    = $field->getMax();
+            $min    = $field->getMin();
+            $type   = ($type != null)?" type='$type'":"";
+            $name   = ($name != null)?" name='$name'":"";
+            $value  = ($value != null)?" value='$value'":"";
+            $placeholder  = ($placeholder != null)?" placeholder='$placeholder'":"";          
+            $id     = ($d!=null)?" id='$id'":"";
+            $class  = ($class!=null)?" class='$class'":"";
+            $max    = ($max != null)?" max='$max'":"";          
+            $min    = ($min != null)?" min='$min'":"";
+            $formHtml.="<input $type $name $value $placeholder $id $class $max $min >";            
         }
         $formHtml.="</form>";
     }

@@ -9,7 +9,7 @@ class InputElement {
     protected $max;
     protected $min;
 
-    function __construct ($type=null,$name=null,$value=null,$placeholder=null){
+    function __construct ($type=null,$name=null,$placeholder=null,$value=null){
         $this->$type = $type;
         $this->$name = $name;
         $this->$placeholder =$placeholder;
@@ -33,7 +33,6 @@ class InputElement {
     public function getName(){
         return $this->$name;
     }
-
 
     public function setValue($value){
         $this->$value = $value;
